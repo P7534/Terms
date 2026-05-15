@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — BrightAspirations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --surface: #13131a;
+      --surface-2: #1a1a25;
+      --accent: #fe2c55;
+      --accent-glow: rgba(254, 44, 85, 0.25);
+      --tiktok-cyan: #25f4ee;
+      --tiktok-pink: #fe2c55;
+      --text: #f0ece4;
+      --text-muted: #6b6670;
+      --text-dim: #3d3a42;
+      --border: #2a2a35;
+      --success: #22c55e;
+      --success-glow: rgba(34, 197, 94, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(254, 44, 85, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 80%, rgba(37, 244, 238, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(11, 11, 15, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    /* ── Step Bar ── */
+    .step-bar {
+      position: fixed;
+      top: 66px; left: 0; right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 40px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.4s;
+    }
+    .step-item.active { color: var(--accent); }
+    .step-item.completed { color: var(--success); }
+    .step-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-dim);
+      transition: all 0.4s;
+    }
+    .step-item.active .step-dot {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .step-item.completed .step-dot {
+      background: var(--success);
+      border-color: var(--success);
+      box-shadow: 0 0 12px var(--success-glow);
+    }
+    .step-arrow { color: var(--text-dim); font-size: 10px; margin: 0 4px; }
+
+    /* ── Main ── */
+    .main {
+      position: relative;
+      z-index: 1;
+      padding: 140px 40px 80px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .page-header {
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .page-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .page-updated { font-size: 12px; color: var(--text-muted); }
+
+    .policy-section {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .policy-section:nth-child(2) { animation-delay: 0.08s; }
+    .policy-section:nth-child(3) { animation-delay: 0.12s; }
+    .policy-section:nth-child(4) { animation-delay: 0.16s; }
+    .policy-section:nth-child(5) { animation-delay: 0.20s; }
+    .policy-section:nth-child(6) { animation-delay: 0.24s; }
+    .policy-section:nth-child(7) { animation-delay: 0.28s; }
+
+    .policy-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .policy-section p { color: var(--text-muted); margin-bottom: 14px; font-size: 13px; }
+    .policy-section ul { list-style: none; margin-bottom: 14px; }
+    .policy-section li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .policy-section li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* ── TikTok Integration CTA ── */
+    .tiktok-integration {
+      margin-top: 56px;
+      padding: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.4s forwards;
+    }
+    .tiktok-integration h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .tiktok-integration .subtitle { color: var(--text-muted); font-size: 13px; margin-bottom: 32px; }
+    .tiktok-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: linear-gradient(135deg, rgba(37, 244, 238, 0.08), rgba(254, 44, 85, 0.08));
+      border: 1px solid rgba(254, 44, 85, 0.2);
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--tiktok-pink);
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+    }
+    .tiktok-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--tiktok-pink);
+      animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    .connect-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--tiktok-cyan), var(--tiktok-pink));
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .connect-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(254, 44, 85, 0.3);
+    }
+    .connect-btn svg { width: 20px; height: 20px; fill: #fff; }
+
+    /* ── Link Row ── */
+    .link-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.45s forwards;
+    }
+    .link-card {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s;
+    }
+    .link-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .link-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 4px; }
+    .link-card .name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; }
+    .link-card .arrow { font-size: 18px; color: var(--text-dim); transition: color 0.3s; }
+    .link-card:hover .arrow { color: var(--accent); }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    .footer p { font-size: 11px; color: var(--text-dim); letter-spacing: 0.08em; }
+    .footer a { color: var(--text-muted); text-decoration: none; }
+    .footer a:hover { color: var(--text); }
+
+    /* ── Screen Overlays ── */
+    .screen-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--bg);
+      overflow-y: auto;
+      animation: fadeIn 0.3s ease;
+    }
+    .screen-overlay.visible { display: block; }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+    /* Auth Screen */
+    .auth-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 0.5s ease 0.1s forwards;
+    }
+    .auth-logo {
+      width: 56px; height: 56px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, var(--tiktok-cyan), var(--tiktok-pink));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .auth-logo svg { width: 28px; height: 28px; fill: #fff; }
+    .auth-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .auth-card .auth-sub { color: var(--text-muted); font-size: 13px; margin-bottom: 32px; }
+    .auth-card .auth-app {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .auth-app-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #ff6b8a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .auth-app-info strong { display: block; font-size: 14px; margin-bottom: 2px; }
+    .auth-app-info span { font-size: 11px; color: var(--text-muted); }
+    .auth-permissions { text-align: left; margin-bottom: 28px; }
+    .auth-permissions h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 12px; }
+    .perm-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 13px; }
+    .perm-check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1.5px solid var(--success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--success);
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--tiktok-pink);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 12px;
+    }
+    .auth-btn:hover { background: #e8254c; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(254,44,85,0.3); }
+    .auth-cancel { background: none; border: none; color: var(--text-muted); font-family: 'DM Mono', monospace; font-size: 12px; cursor: pointer; padding: 8px; }
+    .auth-cancel:hover { color: var(--text); }
+
+    /* Upload Screen */
+    .upload-screen { display: flex; flex-direction: column; min-height: 100vh; }
+    .upload-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .upload-header .back-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .upload-header .back-btn:hover { border-color: var(--text-muted); color: var(--text); }
+    .upload-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; }
+    .upload-card { width: 100%; max-width: 560px; opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards; }
+    .upload-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .upload-card .subtitle { color: var(--text-muted); font-size: 13px; margin-bottom: 36px; }
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 48px;
+      text-align: center;
+      background: var(--surface);
+      transition: all 0.3s;
+      margin-bottom: 28px;
+    }
+    .upload-zone:hover { border-color: var(--accent); background: rgba(254,44,85,0.03); }
+    .upload-icon {
+      width: 56px; height: 56px;
+      margin: 0 auto 20px;
+      background: var(--surface-2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--text-muted);
+    }
+    .upload-zone p { color: var(--text-muted); font-size: 13px; margin-bottom: 4px; }
+    .upload-zone .hint { font-size: 11px; color: var(--text-dim); }
+    .upload-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    .meta-field { display: flex; flex-direction: column; gap: 6px; }
+    .meta-field label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+    .meta-field input, .meta-field select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .meta-field input:focus, .meta-field select:focus { border-color: var(--accent); }
+    .upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .upload-btn:hover { background: #d1204a; transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow); }
+
+    /* Progress Screen */
+    .progress-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; }
+    .progress-card { width: 100%; max-width: 440px; text-align: center; opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards; }
+    .progress-ring-container { width: 120px; height: 120px; margin: 0 auto 32px; position: relative; }
+    .progress-ring { width: 120px; height: 120px; transform: rotate(-90deg); }
+    .progress-ring circle { fill: none; stroke-width: 4; stroke-linecap: round; }
+    .progress-ring .track { stroke: var(--surface-2); }
+    .progress-ring .fill { stroke: var(--accent); stroke-dasharray: 339.292; stroke-dashoffset: 339.292; }
+    .progress-percent {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .progress-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 8px; }
+    .progress-card p { color: var(--text-muted); font-size: 13px; margin-bottom: 8px; }
+    .progress-steps {
+      text-align: left;
+      margin-top: 36px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .p-step { display: flex; align-items: center; gap: 12px; padding: 10px 0; font-size: 13px; color: var(--text-dim); transition: color 0.4s; }
+    .p-step.active { color: var(--accent); }
+    .p-step.done { color: var(--success); }
+    .p-step-icon {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      transition: all 0.4s;
+    }
+    .p-step.active .p-step-icon { border-color: var(--accent); color: var(--accent); animation: pulse 1.5s ease infinite; }
+    .p-step.done .p-step-icon { background: var(--success); border-color: var(--success); color: #fff; }
+
+    /* Success Screen */
+    .success-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; }
+    .success-card { width: 100%; max-width: 520px; text-align: center; opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards; }
+    .success-check {
+      width: 88px; height: 88px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      background: var(--success-glow);
+      border: 2px solid var(--success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: var(--success);
+      animation: scaleIn 0.5s ease 0.3s backwards;
+    }
+    @keyframes scaleIn { from{transform:scale(0.5);opacity:0;} to{transform:scale(1);opacity:1;} }
+    .success-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+    .success-card .success-sub { color: var(--text-muted); font-size: 14px; margin-bottom: 36px; }
+    .success-details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 32px; text-align: left; }
+    .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .label { color: var(--text-muted); }
+    .detail-row .value { color: var(--text); font-weight: 500; }
+    .detail-row .value.status { color: var(--success); display: flex; align-items: center; gap: 6px; }
+    .view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .view-btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow); }
+
+    /* Published Screen */
+    .published-screen { min-height: 100vh; }
+    .pub-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .pub-body { display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 66px); padding: 40px; }
+    .pub-card { display: flex; gap: 40px; max-width: 900px; width: 100%; opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards; }
+    .pub-video-mock {
+      width: 320px; height: 570px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pub-video-placeholder { text-align: center; color: var(--text-muted); }
+    .pub-video-placeholder .play-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 16px;
+      background: rgba(254,44,85,0.15);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--accent);
+    }
+    .pub-video-placeholder p { font-size: 12px; }
+    .pub-video-mock .tiktok-ui {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    }
+    .pub-video-mock .tiktok-ui .username { font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+    .pub-video-mock .tiktok-ui .caption { font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 10px; }
+    .pub-video-mock .tiktok-ui .music { font-size: 12px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 6px; }
+    .pub-side { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .pub-side .tiktok-badge-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(254,44,85,0.1);
+      border: 1px solid rgba(254,44,85,0.2);
+      border-radius: 16px;
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+    .pub-side h2 { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+    .pub-side p { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; line-height: 1.7; }
+    .pub-stats { display: flex; gap: 28px; margin-bottom: 32px; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; }
+    .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--tiktok-pink);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .pub-link:hover { background: #d1204a; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(254,44,85,0.3); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 16px 24px; }
+      .main { padding: 130px 20px 60px; }
+      .page-title { font-size: 30px; }
+      .tiktok-integration { padding: 28px; }
+      .upload-meta { grid-template-columns: 1fr; }
+      .pub-card { flex-direction: column; align-items: center; }
+      .pub-video-mock { width: 260px; height: 460px; }
+      .link-row { flex-direction: column; }
+      .step-bar { flex-wrap: wrap; gap: 6px; padding: 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Bright<span>Aspirations</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="privacy.html" class="active">Privacy</a></li>
+    </ul>
+  </nav>
+
+  <!-- Step Bar -->
+  <div class="step-bar">
+    <div class="step-item completed" id="step1"><span class="step-dot"></span><span>Privacy Policy</span></div>
+    <span class="step-arrow">›</span>
+    <div class="step-item" id="step2"><span class="step-dot"></span><span>TikTok Auth</span></div>
+    <span class="step-arrow">›</span>
+    <div class="step-item" id="step3"><span class="step-dot"></span><span>Upload</span></div>
+    <span class="step-arrow">›</span>
+    <div class="step-item" id="step4"><span class="step-dot"></span><span>Processing</span></div>
+    <span class="step-arrow">›</span>
+    <div class="step-item" id="step5"><span class="step-dot"></span><span>Published</span></div>
+  </div>
+
+  <!-- ════════ SCREEN 1: Privacy Policy ════════ -->
+  <div id="screen-privacy" class="screen-overlay visible">
+    <div class="main">
+      <div class="page-header">
+        <span class="page-label">Legal</span>
+        <h1 class="page-title">Privacy Policy</h1>
+        <p class="page-updated">Last updated: January 1, 2026</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>1. Information We Collect</h2>
+        <p>When you use BrightAspirations, we collect information you provide directly, such as when you create an account, connect third-party services like TikTok, or publish content through our platform.</p>
+        <ul>
+          <li>Account information (name, email, profile details)</li>
+          <li>TikTok account data when you authorize our application</li>
+          <li>Content you upload and publish through our service</li>
+          <li>Usage data including interactions, preferences, and activity logs</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information we collect to provide, maintain, and improve our services, including the TikTok content posting integration.</p>
+        <ul>
+          <li>To authenticate and manage your TikTok connection</li>
+          <li>To publish content on your behalf via the TikTok Content Posting API</li>
+          <li>To send important notices about your account and our services</li>
+          <li>To detect and prevent fraud, abuse, or security issues</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>3. TikTok Integration</h2>
+        <p>When you connect your TikTok account, we request permission to access your profile information and publish content on your behalf. We only use these permissions for the features you explicitly authorize.</p>
+        <p>Your TikTok access tokens are stored securely and are never shared with third parties. You can revoke access at any time through your TikTok settings or our dashboard.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>4. Data Sharing</h2>
+        <p>We do not sell your personal information. We may share data with:</p>
+        <ul>
+          <li>TikTok, solely for the purpose of content publishing you authorize</li>
+          <li>Service providers who assist in our operations under strict confidentiality</li>
+          <li>Law enforcement when required by applicable law</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>5. Data Security</h2>
+        <p>We implement industry-standard security measures including encryption at rest and in transit, secure API key management, and regular security audits to protect your data.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>6. Your Rights</h2>
+        <p>You have the right to access, correct, or delete your personal data at any time. You may also disconnect your TikTok account and revoke all permissions through our platform settings.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>7. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy, contact us at <strong>privacy@brightaspirations.com</strong></p>
+      </div>
+
+      <!-- TikTok CTA -->
+      <div class="tiktok-integration">
+        <div class="tiktok-badge"><span class="dot"></span>TikTok Content Posting API</div>
+        <h2>Connect Your TikTok Account</h2>
+        <p class="subtitle">Authorize BrightAspirations to publish content on your behalf using the TikTok Content Posting API.</p>
+        <button class="connect-btn" onclick="showScreen('auth')">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.3 0 .59.05.87.13V9.01a6.33 6.33 0 00-.87-.06 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.94a8.18 8.18 0 004.77 1.53V7.02a4.84 4.84 0 01-1.01-.33z"/></svg>
+          Connect with TikTok
+        </button>
+      </div>
+
+      <!-- Link to Terms -->
+      <div class="link-row">
+        <a href="terms.html" class="link-card">
+          <div><span class="label">Read our</span><span class="name">Terms of Service</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="index.html" class="link-card">
+          <div><span class="label">Back to</span><span class="name">Homepage</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2026 BrightAspirations &mdash; <a href="terms.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ════════ SCREEN 2: TikTok Auth ════════ -->
+  <div id="screen-auth" class="screen-overlay">
+    <div class="auth-screen">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.3 0 .59.05.87.13V9.01a6.33 6.33 0 00-.87-.06 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.94a8.18 8.18 0 004.77 1.53V7.02a4.84 4.84 0 01-1.01-.33z"/></svg>
+        </div>
+        <h2>Authorize BrightAspirations</h2>
+        <p class="auth-sub">BrightAspirations wants to access your TikTok account</p>
+
+        <div class="auth-app">
+          <div class="auth-app-icon">B</div>
+          <div class="auth-app-info">
+            <strong>BrightAspirations</strong>
+            <span>Verified Developer &middot; brightaspirations.com</span>
+          </div>
+        </div>
+
+        <div class="auth-permissions">
+          <h4>This app will be able to:</h4>
+          <div class="perm-item"><span class="perm-check">&#10003;</span><span>View your profile information</span></div>
+          <div class="perm-item"><span class="perm-check">&#10003;</span><span>Upload and publish videos on your behalf</span></div>
+          <div class="perm-item"><span class="perm-check">&#10003;</span><span>Access your video list</span></div>
+        </div>
+
+        <button class="auth-btn" onclick="showScreen('upload')">Authorize</button>
+        <br>
+        <button class="auth-cancel" onclick="showScreen('privacy')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SCREEN 3: Upload ════════ -->
+  <div id="screen-upload" class="screen-overlay">
+    <div class="upload-screen">
+      <div class="upload-header">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;">Bright<span style="color:var(--accent)">Aspirations</span></span>
+        <button class="back-btn" onclick="showScreen('auth')">&#8592; Back</button>
+      </div>
+      <div class="upload-body">
+        <div class="upload-card">
+          <h2>Upload to TikTok</h2>
+          <p class="subtitle">Publish a video through the Content Posting API</p>
+          <div class="upload-zone">
+            <div class="upload-icon">&#9650;</div>
+            <p><strong>brightaspirations_demo.mp4</strong> — Ready to upload</p>
+            <p class="hint">MP4 &middot; 1080x1920 &middot; 24.5 MB</p>
+          </div>
+          <div class="upload-meta">
+            <div class="meta-field">
+              <label>Caption</label>
+              <input type="text" value="Keep pushing forward! #BrightAspirations #Motivation" readonly>
+            </div>
+            <div class="meta-field">
+              <label>Privacy</label>
+              <select><option selected>Public</option><option>Friends</option><option>Private</option></select>
+            </div>
+          </div>
+          <button class="upload-btn" onclick="showScreen('progress')">&#9650; Upload &amp; Publish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SCREEN 4: Progress ════════ -->
+  <div id="screen-progress" class="screen-overlay">
+    <div class="progress-screen">
+      <div class="progress-card" id="progressCard">
+        <div class="progress-ring-container" id="progressRingContainer">
+          <svg class="progress-ring" viewBox="0 0 120 120">
+            <circle class="track" cx="60" cy="60" r="54"/>
+            <circle class="fill" cx="60" cy="60" r="54" id="progressFill"/>
+          </svg>
+          <div class="progress-percent" id="progressPercent">0%</div>
+        </div>
+        <h2 id="progressTitle">Uploading Video...</h2>
+        <p id="progressSub">Sending your video to TikTok servers</p>
+        <div class="progress-steps">
+          <div class="p-step" id="ps1"><span class="p-step-icon">1</span><span>Authenticating with TikTok API</span></div>
+          <div class="p-step" id="ps2"><span class="p-step-icon">2</span><span>Uploading video file</span></div>
+          <div class="p-step" id="ps3"><span class="p-step-icon">3</span><span>Processing video on TikTok servers</span></div>
+          <div class="p-step" id="ps4"><span class="p-step-icon">4</span><span>Publishing to @brightaspirations</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SCREEN 5: Success ════════ -->
+  <div id="screen-success" class="screen-overlay">
+    <div class="success-screen">
+      <div class="success-card">
+        <div class="success-check">&#10003;</div>
+        <h2>Video Published!</h2>
+        <p class="success-sub">Your video has been successfully published to TikTok.</p>
+        <div class="success-details">
+          <div class="detail-row"><span class="label">Status</span><span class="value status"><span>&#9679;</span> Published</span></div>
+          <div class="detail-row"><span class="label">Account</span><span class="value">@brightaspirations</span></div>
+          <div class="detail-row"><span class="label">Video ID</span><span class="value">v_7482910384726</span></div>
+          <div class="detail-row"><span class="label">Caption</span><span class="value">Keep pushing forward! #BrightAspirations</span></div>
+          <div class="detail-row"><span class="label">Visibility</span><span class="value">Public</span></div>
+          <div class="detail-row"><span class="label">Published</span><span class="value">Just now</span></div>
+        </div>
+        <button class="view-btn" onclick="showScreen('published')">View on TikTok &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SCREEN 6: Published ════════ -->
+  <div id="screen-published" class="screen-overlay">
+    <div class="published-screen">
+      <div class="pub-header">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;">Bright<span style="color:var(--accent)">Aspirations</span></span>
+        <a href="https://www.tiktok.com/@brightaspirations" target="_blank" style="color:var(--text-muted);text-decoration:none;font-size:12px;">Open in TikTok &rarr;</a>
+      </div>
+      <div class="pub-body">
+        <div class="pub-card">
+          <div class="pub-video-mock">
+            <div class="pub-video-placeholder">
+              <div class="play-icon">&#9654;</div>
+              <p>Your Video</p>
+              <p style="margin-top:4px;color:var(--text-dim);font-size:11px;">1080 &times; 1920</p>
+            </div>
+            <div class="tiktok-ui">
+              <div class="username">@brightaspirations</div>
+              <div class="caption">Keep pushing forward! #BrightAspirations #Motivation &#128293;</div>
+              <div class="music">&#9835; Original Sound — BrightAspirations</div>
+            </div>
+          </div>
+          <div class="pub-side">
+            <div class="tiktok-badge-sm"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span>Live on TikTok</div>
+            <h2>Successfully Published to TikTok</h2>
+            <p>Your video is now live on your TikTok profile. Viewers can like, comment, and share your content.</p>
+            <div class="pub-stats">
+              <div class="stat"><div class="stat-num">0</div><div class="stat-label">Likes</div></div>
+              <div class="stat"><div class="stat-num">0</div><div class="stat-label">Comments</div></div>
+              <div class="stat"><div class="stat-num">0</div><div class="stat-label">Shares</div></div>
+            </div>
+            <a href="https://www.tiktok.com/@brightaspirations" target="_blank" class="pub-link">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.3 0 .59.05.87.13V9.01a6.33 6.33 0 00-.87-.06 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.94a8.18 8.18 0 004.77 1.53V7.02a4.84 4.84 0 01-1.01-.33z"/></svg>
+              View on TikTok
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showScreen(name) {
+      document.querySelectorAll('.screen-overlay').forEach(s => s.classList.remove('visible'));
+      const target = document.getElementById('screen-' + name);
+      if (target) target.classList.add('visible');
+
+      const steps = ['privacy','auth','upload','progress','published'];
+      const idx = steps.indexOf(name);
+      steps.forEach((s, i) => {
+        const el = document.getElementById('step' + (i+1));
+        if (!el) return;
+        el.classList.remove('active','completed');
+        if (i < idx) el.classList.add('completed');
+        else if (i === idx) el.classList.add('active');
+      });
+      if (name === 'success') {
+        steps.forEach((s, i) => {
+          const el = document.getElementById('step' + (i+1));
+          if (el) { el.classList.remove('active'); el.classList.add('completed'); }
+        });
+      }
+      if (name === 'progress') runProgressAnimation();
+    }
+
+    function runProgressAnimation() {
+      const fill = document.getElementById('progressFill');
+      const pct = document.getElementById('progressPercent');
+      const title = document.getElementById('progressTitle');
+      const sub = document.getElementById('progressSub');
+      const circumference = 2 * Math.PI * 54;
+
+      fill.style.transition = 'none';
+      fill.style.strokeDashoffset = circumference;
+      pct.textContent = '0%';
+
+      ['ps1','ps2','ps3','ps4'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.remove('active','done');
+        el.querySelector('.p-step-icon').textContent = ['1','2','3','4'][id[2]-1];
+      });
+
+      const totalDuration = 6000;
+      const startTime = Date.now();
+
+      function animate() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / totalDuration, 1);
+        const percent = Math.floor(progress * 100);
+
+        fill.style.transition = 'stroke-dashoffset 0.1s linear';
+        fill.style.strokeDashoffset = circumference - (circumference * progress);
+        pct.textContent = percent + '%';
+
+        if (percent < 10) { document.getElementById('ps1').classList.add('active'); }
+        if (percent >= 10) { document.getElementById('ps1').classList.remove('active'); document.getElementById('ps1').classList.add('done'); document.getElementById('ps1').querySelector('.p-step-icon').textContent = '\u2713'; }
+        if (percent >= 10 && percent < 35) { document.getElementById('ps2').classList.add('active'); }
+        if (percent >= 35) { document.getElementById('ps2').classList.remove('active'); document.getElementById('ps2').classList.add('done'); document.getElementById('ps2').querySelector('.p-step-icon').textContent = '\u2713'; }
+        if (percent >= 35 && percent < 70) { document.getElementById('ps3').classList.add('active'); }
+        if (percent >= 70) { document.getElementById('ps3').classList.remove('active'); document.getElementById('ps3').classList.add('done'); document.getElementById('ps3').querySelector('.p-step-icon').textContent = '\u2713'; }
+        if (percent >= 70 && percent < 100) { document.getElementById('ps4').classList.add('active'); title.textContent = 'Publishing...'; sub.textContent = 'Finalizing your video on TikTok'; }
+        if (percent >= 35 && percent < 70) { title.textContent = 'Processing Video...'; sub.textContent = 'TikTok servers are processing your video'; }
+
+        if (percent >= 100) {
+          document.getElementById('ps4').classList.remove('active');
+          document.getElementById('ps4').classList.add('done');
+          document.getElementById('ps4').querySelector('.p-step-icon').textContent = '\u2713';
+          title.textContent = 'Upload Complete!';
+          sub.textContent = 'Your video is now live on TikTok';
+          setTimeout(() => showScreen('success'), 1200);
+          return;
+        }
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    }
+  </script>
+</body>
+</html>
