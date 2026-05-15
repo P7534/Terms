@@ -21,9 +21,7 @@
       --border: #2a2a35;
       --success: #22c55e;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -33,272 +31,148 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse at 20% 30%, rgba(254, 44, 85, 0.05) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(37, 244, 238, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(254, 44, 85, 0.02) 0%, transparent 70%);
+        radial-gradient(ellipse at 20% 30%, rgba(254,44,85,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(37,244,238,0.04) 0%, transparent 50%);
       pointer-events: none;
       z-index: 0;
     }
-
-    /* ── Nav ── */
     .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 20px 48px;
-      background: rgba(11, 11, 15, 0.85);
+      background: rgba(11,11,15,0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-brand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      color: var(--text);
-      text-decoration: none;
+      font-size: 24px; font-weight: 700;
+      color: var(--text); text-decoration: none;
     }
-
     .nav-brand span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-      align-items: center;
-    }
-
+    .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      transition: color 0.3s ease;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 12px; text-transform: uppercase;
+      letter-spacing: 0.12em; transition: color 0.3s;
     }
-
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--text); }
-
-    .nav-links .divider {
-      width: 1px;
-      height: 16px;
-      background: var(--border);
-    }
-
-    /* ── Hero ── */
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
     .hero {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       text-align: center;
       padding: 120px 40px 80px;
     }
-
     .hero-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--accent);
+      font-size: 10px; text-transform: uppercase;
+      letter-spacing: 0.25em; color: var(--accent);
       margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.1s forwards;
+      opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
     }
-
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(40px, 6vw, 72px);
-      font-weight: 700;
-      line-height: 1.1;
-      max-width: 700px;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.2s forwards;
+      font-size: clamp(40px, 6vw, 72px); font-weight: 700;
+      line-height: 1.1; max-width: 700px; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
     }
-
     .hero-sub {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin-bottom: 44px;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.3s forwards;
+      font-size: 15px; color: var(--text-muted);
+      max-width: 520px; margin-bottom: 44px;
+      opacity: 0; animation: fadeUp 0.6s ease 0.3s forwards;
     }
-
     .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      display: inline-flex; align-items: center; gap: 10px;
       padding: 18px 44px;
-      background: var(--accent);
-      color: #fff;
+      background: var(--accent); color: #fff;
       font-family: 'DM Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.4s forwards;
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.06em; text-decoration: none;
+      border-radius: 8px; transition: all 0.3s;
+      opacity: 0; animation: fadeUp 0.6s ease 0.4s forwards;
     }
-
     .hero-cta:hover {
-      background: #d1204a;
-      transform: translateY(-3px);
+      background: #d1204a; transform: translateY(-3px);
       box-shadow: 0 12px 40px var(--accent-glow);
     }
-
-    /* ── Platform Cards ── */
     .platforms {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       padding: 40px 48px 120px;
-      max-width: 1100px;
-      margin: 0 auto;
+      max-width: 1100px; margin: 0 auto;
     }
-
     .platforms-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--text-dim);
-      text-align: center;
-      margin-bottom: 40px;
+      font-size: 10px; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--text-dim);
+      text-align: center; margin-bottom: 40px;
     }
-
     .platform-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-
     .platform-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 36px 28px;
-      transition: all 0.4s ease;
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards;
+      border-radius: 14px; padding: 36px 28px;
+      transition: all 0.4s;
+      opacity: 0; animation: fadeUp 0.6s ease forwards;
     }
-
     .platform-card:nth-child(1) { animation-delay: 0.5s; }
     .platform-card:nth-child(2) { animation-delay: 0.6s; }
     .platform-card:nth-child(3) { animation-delay: 0.7s; }
-
     .platform-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
+      border-color: var(--accent); transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
-
     .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 20px;
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 20px;
     }
-
     .card-icon.tiktok {
-      background: linear-gradient(135deg, rgba(37, 244, 238, 0.1), rgba(254, 44, 85, 0.1));
-      border: 1px solid rgba(254, 44, 85, 0.2);
-      color: var(--tiktok-pink);
+      background: linear-gradient(135deg, rgba(37,244,238,0.1), rgba(254,44,85,0.1));
+      border: 1px solid rgba(254,44,85,0.2); color: var(--tiktok-pink);
     }
-
     .card-icon.meta {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      color: #3b82f6;
+      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1));
+      border: 1px solid rgba(59,130,246,0.2); color: #3b82f6;
     }
-
     .card-icon.linkedin {
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
-      border: 1px solid rgba(37, 99, 235, 0.2);
-      color: #2563eb;
+      background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(37,99,235,0.05));
+      border: 1px solid rgba(37,99,235,0.2); color: #2563eb;
     }
-
     .platform-card h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 10px;
+      font-size: 22px; font-weight: 700; margin-bottom: 10px;
     }
-
-    .platform-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
+    .platform-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
     .card-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 0.06em;
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; font-size: 11px;
+      color: var(--text-dim); letter-spacing: 0.06em;
     }
-
-    .card-status .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--text-dim);
-    }
-
+    .card-status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-dim); }
     .platform-card:hover .card-status { color: var(--accent); }
     .platform-card:hover .card-status .dot { background: var(--accent); }
-
-    /* ── Footer ── */
     .footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 40px;
+      position: relative; z-index: 1;
+      text-align: center; padding: 40px;
       border-top: 1px solid var(--border);
     }
-
-    .footer p {
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-    }
-
-    .footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .footer p { font-size: 11px; color: var(--text-dim); letter-spacing: 0.08em; }
+    .footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .footer a:hover { color: var(--text); }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @media (max-width: 768px) {
       .nav { padding: 16px 24px; }
       .nav-links { gap: 20px; }
@@ -309,7 +183,6 @@
   </style>
 </head>
 <body>
-
   <nav class="nav">
     <a href="index.html" class="nav-brand">Bright<span>Aspirations</span></a>
     <ul class="nav-links">
@@ -337,7 +210,6 @@
         <p>Connect your TikTok account and publish videos directly from the platform.</p>
         <span class="card-status"><span class="dot"></span> Content Posting API</span>
       </div>
-
       <div class="platform-card">
         <div class="card-icon meta">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.93 3.78-3.93 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 008.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg>
@@ -346,7 +218,6 @@
         <p>Manage posts across Meta platforms with a single click.</p>
         <span class="card-status"><span class="dot"></span> Graph API</span>
       </div>
-
       <div class="platform-card">
         <div class="card-icon linkedin">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
@@ -361,6 +232,5 @@
   <footer class="footer">
     <p>&copy; 2026 BrightAspirations &mdash; <a href="terms.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
   </footer>
-
 </body>
 </html>
